@@ -1,0 +1,135 @@
+<!-- PATH: Golden-Times-stor-history-Publisher/documentation/majorana-system.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Majorana — System — Golden Times Stor‑History Publisher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Majorana System: Architektur, Orchestrierung und Rolle innerhalb des Golden Times Ökosystems.">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/icon-32.png">
+  <link rel="manifest" href="../assets/icons/manifest.json">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/typography.css">
+  <link rel="stylesheet" href="../assets/css/theme-golden.css">
+</head>
+<body class="gt-body gt-doc-majorana">
+  <header class="gt-header">
+    <div class="gt-logo-wrap">
+      <a href="../index.html" class="gt-home-link">
+        <img src="../assets/logos/golden-times-logo.svg" alt="Golden Times Logo" class="gt-logo">
+        <span class="gt-header-brand">Golden Times Stor‑History Publisher — Documentation</span>
+      </a>
+    </div>
+    <nav class="gt-nav" aria-label="Dokumentation Navigation">
+      <a href="architecture.html" class="gt-nav-link">Architecture</a>
+      <a href="mission.html" class="gt-nav-link">Mission</a>
+      <a href="methodology.html" class="gt-nav-link">Methodology</a>
+      <a href="publishing-process.html" class="gt-nav-link">Publishing Process</a>
+      <a href="rfof-golden-system.html" class="gt-nav-link">RFOF</a>
+      <a href="prai-overview.html" class="gt-nav-link">PRAI</a>
+      <a href="box-blockchain.html" class="gt-nav-link">BOx‑Blockchain</a>
+      <a href="majorana-system.html" class="gt-nav-link active">Majorana</a>
+    </nav>
+  </header>
+
+  <main class="gt-main" role="main">
+    <article class="gt-doc-article" aria-labelledby="majorana-title">
+      <h1 id="majorana-title">Majorana — System</h1>
+      <p class="gt-lead">Majorana ist das Off‑chain‑Orchestrierungs‑Subsystem des Golden Times Ökosystems. Dieses Dokument beschreibt Architektur, Integrationsmuster, Orchestrierungs‑Workflows und Sicherheitsprinzipien. Inhalte und Terminologie entsprechen Root‑README.md und documentation/README.md.</p>
+
+      <section aria-labelledby="majorana-overview">
+        <h2 id="majorana-overview">Überblick</h2>
+        <p>Majorana koordiniert komplexe Off‑chain‑Workflows, stellt Integrationspunkte zu On‑chain‑Systemen (BOx) und ökonomischen Schichten (PRAI) bereit und ermöglicht modulare Erweiterungen ohne externe Abhängigkeiten.</p>
+        <ul>
+          <li><strong>Zweck:</strong> Orchestrierung, Scheduling, Off‑chain‑Logik und Subsystem‑Koordination.</li>
+          <li><strong>Eigenschaften:</strong> Modular, deterministisch in Ablaufdefinitionen, auditierbar und versioniert.</li>
+          <li><strong>Konformität:</strong> RWPO‑konforme Implementierung; alle Spezifikationen sind im Repository dokumentiert.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="majorana-architecture">
+        <h2 id="majorana-architecture">Architektur</h2>
+        <p>Majorana besteht aus klar getrennten Modulen, die zusammen Orchestrierungsaufgaben erfüllen:</p>
+        <ol>
+          <li><strong>Orchestrator Core:</strong> Definiert Workflows, Zustandsmaschinen und Ausführungslogik.</li>
+          <li><strong>Adapter Layer:</strong> Modularisierte Schnittstellen zu BOx, PRAI und externen internen Diensten.</li>
+          <li><strong>Scheduler:</strong> Zeit‑ und ereignisgesteuerte Ausführung von Tasks mit Wiederholungs‑ und Backoff‑Strategien.</li>
+          <li><strong>Audit & Logging:</strong> Vollständige, versionierte Protokollierung aller Orchestrierungsereignisse.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="majorana-workflows">
+        <h2 id="majorana-workflows">Orchestrierungs‑Workflows</h2>
+        <p>Workflows in Majorana sind deterministisch beschrieben und versioniert, um Reproduzierbarkeit und Nachvollziehbarkeit sicherzustellen.</p>
+        <ul>
+          <li><strong>Transaction Orchestration:</strong> Koordination von On‑chain‑Transaktionen mit Off‑chain‑Vorbedingungen und Post‑Processing.</li>
+          <li><strong>Batch Processing:</strong> Geplante Aggregation und Verarbeitung von Datenpunkten für Analysen und Reporting.</li>
+          <li><strong>Cross‑Subsystem Flows:</strong> Mehrstufige Abläufe, die PRAI‑Anreizereignisse, RFOF‑Governance‑Signale und BOx‑Verankerungen kombinieren.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="majorana-integration">
+        <h2 id="majorana-integration">Integrationsmuster</h2>
+        <p>Majorana nutzt standardisierte Adapter und Nachrichtenformate, um Interoperabilität und Austauschbarkeit zu gewährleisten.</p>
+        <ul>
+          <li><strong>Event‑Driven Adapter:</strong> Adapter, die auf On‑chain‑Events reagieren und Off‑chain‑Workflows auslösen.</li>
+          <li><strong>Command‑API:</strong> Definierte Befehle zur Steuerung von Workflows, mit klaren Metadaten für Versionierung und Audit.</li>
+          <li><strong>Idempotenz:</strong> Alle Adapter und Tasks sind idempotent ausgelegt, um Wiederholungen sicher zu handhaben.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="majorana-security">
+        <h2 id="majorana-security">Sicherheit und Compliance</h2>
+        <p>Sicherheitsprinzipien sind integraler Bestandteil von Majorana. Off‑chain‑Operationen sind so gestaltet, dass sie auditierbar, nachvollziehbar und governance‑gesteuert sind.</p>
+        <ul>
+          <li><strong>Authentifizierung & Autorisierung:</strong> Rollenbasierte Zugriffssteuerung für Orchestrator‑Aktionen.</li>
+          <li><strong>Audit Trails:</strong> Jede Orchestrierungsaktion wird mit Metadaten (Autor, Zeitstempel, Version, Begründung) protokolliert.</li>
+          <li><strong>Fehlerbehandlung:</strong> Definierte Incident‑Response‑Prozeduren und Errata‑Workflows für Korrekturen.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="majorana-deployment">
+        <h2 id="majorana-deployment">Deployment und Betrieb</h2>
+        <p>Deployment‑Richtlinien für Majorana folgen den RWPO‑Standards: Staging, Versionierung, Backups und dokumentierte Recovery‑Prozeduren.</p>
+        <ul>
+          <li><strong>Staging:</strong> Tests von Workflows in isolierten Staging‑Umgebungen vor dem Release.</li>
+          <li><strong>Versionierung:</strong> Workflows und Adapter werden semantisch versioniert und archiviert.</li>
+          <li><strong>Monitoring:</strong> Laufzeitmetriken, Task‑Erfolgsraten und SLA‑Überwachung.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="majorana-examples">
+        <h2 id="majorana-examples">Beispielszenarien</h2>
+        <article class="gt-case">
+          <h3>Orchestrierter Reward‑Payout</h3>
+          <p>Ein PRAI‑Reward‑Event löst Majorana‑Workflows aus, die On‑chain‑Verankerungen auf BOx vornehmen, Auszahlungen planen und Audit‑Metadaten erzeugen.</p>
+        </article>
+        <article class="gt-case">
+          <h3>Governance‑Driven Migration</h3>
+          <p>Ein Governance‑Beschluss (RFOF) initiiert eine mehrstufige Migration, orchestriert durch Majorana mit Staging, Validierung und finaler On‑chain‑Verankerung.</p>
+        </article>
+      </section>
+
+      <section aria-labelledby="majorana-resources">
+        <h2 id="majorana-resources">Verwandte Dokumente</h2>
+        <ul>
+          <li><a href="rfof-golden-system.html">RFOF — Golden System</a></li>
+          <li><a href="prai-overview.html">PRAI — Overview</a></li>
+          <li><a href="box-blockchain.html">BOx‑Blockchain — Technical</a></li>
+          <li><a href="../pages/analysis/crypto.html">Crypto Analysis</a></li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="gt-footer" role="contentinfo">
+    <div class="gt-footer-inner">
+      <p>Golden‑Times‑Stor‑History‑Publisher · Majorana System · Dokumentation gemäß Root‑README.md und documentation/README.md</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/navigation.js"></script>
+</body>
+</html>
