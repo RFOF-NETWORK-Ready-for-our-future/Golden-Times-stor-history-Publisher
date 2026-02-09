@@ -1,0 +1,133 @@
+/* PATH: Golden-Times-stor-history-Publisher/assets/css/typography.css
+   Typographic styles for Golden Times Stor‑History Publisher
+   RWPO‑conform: no external dependencies, only repository styles
+*/
+
+/* Base type settings */
+:root{
+  --gt-font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --gt-font-size-base: 16px;
+  --gt-line-height: 1.45;
+  --gt-heading-weight: 700;
+  --gt-body-weight: 400;
+  --gt-muted: #bfb7a8;
+  --gt-text: #f6f3ee;
+  --gt-accent: #d4a017;
+  --gt-code-bg: rgba(255,255,255,0.03);
+  --gt-code-border: rgba(255,255,255,0.06);
+}
+
+/* Global text */
+html{font-size:var(--gt-font-size-base)}
+body{
+  font-family:var(--gt-font-sans);
+  font-weight:var(--gt-body-weight);
+  color:var(--gt-text);
+  line-height:var(--gt-line-height);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Headings */
+h1,h2,h3,h4,h5,h6{
+  color:var(--gt-text);
+  margin:0 0 0.6rem 0;
+  font-weight:var(--gt-heading-weight);
+  line-height:1.15;
+  letter-spacing:0.01em;
+}
+h1{font-size:2rem}
+h2{font-size:1.25rem;color:var(--gt-accent)}
+h3{font-size:1.05rem}
+h4{font-size:0.98rem}
+h5{font-size:0.92rem}
+h6{font-size:0.85rem;color:var(--gt-muted)}
+
+/* Paragraphs and lead */
+p{margin:0 0 0.9rem 0;color:var(--gt-muted);font-size:1rem}
+.gt-lead{font-size:1.05rem;color:var(--gt-muted);margin-bottom:1rem}
+
+/* Lists */
+ul,ol{margin:0 0 0.9rem 0;padding-left:1.25rem;color:var(--gt-muted)}
+li{margin:0.35rem 0}
+
+/* Links */
+a{color:var(--gt-accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Inline code and preformatted blocks */
+code{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+  background:var(--gt-code-bg);
+  border:1px solid var(--gt-code-border);
+  padding:0.15rem 0.35rem;
+  border-radius:6px;
+  font-size:0.92rem;
+  color:var(--gt-text);
+}
+pre{
+  background:var(--gt-code-bg);
+  border:1px solid var(--gt-code-border);
+  padding:1rem;
+  border-radius:8px;
+  overflow:auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+  font-size:0.95rem;
+  color:var(--gt-text);
+  margin:0 0 1rem 0;
+}
+
+/* Blockquote */
+blockquote{
+  margin:0 0 1rem 0;
+  padding:0.75rem 1rem;
+  border-left:4px solid rgba(212,160,23,0.12);
+  background:rgba(212,160,23,0.02);
+  color:var(--gt-muted);
+  border-radius:6px;
+}
+
+/* Tables */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:0 0 1rem 0;
+  color:var(--gt-text);
+}
+th,td{
+  padding:0.6rem 0.75rem;
+  border-bottom:1px solid var(--gt-border);
+  text-align:left;
+  vertical-align:top;
+  font-size:0.95rem;
+  color:var(--gt-muted);
+}
+th{color:var(--gt-accent);font-weight:600}
+
+/* Small text and captions */
+.small, .caption{font-size:0.875rem;color:var(--gt-muted)}
+
+/* Accessibility: focus styles for interactive text elements */
+a:focus, button:focus, input:focus, textarea:focus{
+  outline:2px solid rgba(212,160,23,0.18);
+  outline-offset:2px;
+  border-radius:4px;
+}
+
+/* Responsive typography adjustments */
+@media (max-width:900px){
+  h1{font-size:1.6rem}
+  h2{font-size:1.05rem}
+  :root{--gt-font-size-base:15px}
+}
+
+/* Utility text helpers */
+.kicker{font-size:0.85rem;color:var(--gt-accent-weak);text-transform:uppercase;letter-spacing:0.08em}
+.meta{font-size:0.9rem;color:var(--gt-muted)}
+
+/* Print styles */
+@media print{
+  body{color:#000;background:#fff}
+  a:after{content:" (" attr(href) ")";}
+  pre, code{background:transparent;border:none}
+}

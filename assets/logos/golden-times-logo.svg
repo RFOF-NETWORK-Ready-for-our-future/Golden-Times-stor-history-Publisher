@@ -1,0 +1,39 @@
+<!-- PATH: Golden-Times-stor-history-Publisher/assets/logos/golden-times-logo.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Golden Times logo">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#FFD27A"/>
+      <stop offset="60%" stop-color="#D4A017"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.1"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <rect width="100%" height="100%" fill="#0b0b0b"/>
+
+  <g transform="translate(56,56)">
+    <circle cx="200" cy="200" r="200" fill="url(#g1)" filter="url(#shadow)"/>
+    <!-- Monogram GT -->
+    <g transform="translate(120,100)">
+      <path d="M40 20 L120 20 L120 40 L80 40 L80 180 L60 180 L60 40 L40 40 Z" fill="#fff" opacity="0.95"/>
+      <path d="M150 40 C150 40 190 40 210 40 C240 40 260 60 260 92 C260 124 240 144 210 144 C190 144 150 144 150 144 L150 124 C170 124 210 124 230 124 C250 124 260 112 260 92 C260 72 250 60 230 60 C210 60 170 60 150 60 Z" fill="#fff" opacity="0.95"/>
+      <rect x="0" y="0" width="260" height="160" fill="none"/>
+      <g transform="translate(0,0)" opacity="0.12">
+        <rect x="0" y="0" width="260" height="160" fill="url(#g2)"/>
+      </g>
+    </g>
+
+    <!-- Wordmark -->
+    <g transform="translate(0,330)">
+      <text x="0" y="0" font-family="Verdana, Arial, sans-serif" font-size="36" fill="#fff" font-weight="700">GOLDEN TIMES</text>
+      <text x="0" y="36" font-family="Verdana, Arial, sans-serif" font-size="14" fill="#fff" opacity="0.85">Stor · History · Publisher</text>
+    </g>
+  </g>
+</svg>

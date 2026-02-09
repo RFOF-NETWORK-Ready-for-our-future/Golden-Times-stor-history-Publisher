@@ -1,0 +1,139 @@
+<!-- PATH: Golden-Times-stor-history-Publisher/documentation/rfof-golden-system.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>RFOF — Golden System — Golden Times Stor‑History Publisher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RFOF — Golden System: Architektur, Governance und Integrationsprinzipien im Kontext des Golden Times Projekts.">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/icon-32.png">
+  <link rel="manifest" href="../assets/icons/manifest.json">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/typography.css">
+  <link rel="stylesheet" href="../assets/css/theme-golden.css">
+</head>
+<body class="gt-body gt-doc-rfof">
+  <header class="gt-header">
+    <div class="gt-logo-wrap">
+      <a href="../index.html" class="gt-home-link">
+        <img src="../assets/logos/golden-times-logo.svg" alt="Golden Times Logo" class="gt-logo">
+        <span class="gt-header-brand">Golden Times Stor‑History Publisher — Documentation</span>
+      </a>
+    </div>
+    <nav class="gt-nav" aria-label="Dokumentation Navigation">
+      <a href="architecture.html" class="gt-nav-link">Architecture</a>
+      <a href="mission.html" class="gt-nav-link">Mission</a>
+      <a href="methodology.html" class="gt-nav-link">Methodology</a>
+      <a href="publishing-process.html" class="gt-nav-link">Publishing Process</a>
+      <a href="rfof-golden-system.html" class="gt-nav-link active">RFOF — Golden System</a>
+      <a href="prai-overview.html" class="gt-nav-link">PRAI</a>
+      <a href="box-blockchain.html" class="gt-nav-link">BOx‑Blockchain</a>
+      <a href="majorana-system.html" class="gt-nav-link">Majorana</a>
+    </nav>
+  </header>
+
+  <main class="gt-main" role="main">
+    <article class="gt-doc-article" aria-labelledby="rfof-title">
+      <h1 id="rfof-title">RFOF — Golden System</h1>
+      <p class="gt-lead">Dieses Dokument beschreibt das RFOF‑Golden System: seine Architekturprinzipien, Governance‑Modelle und die Rolle innerhalb des Golden Times Ökosystems. Inhalte und Terminologie entsprechen den Vorgaben in Root‑README.md und documentation/README.md.</p>
+
+      <section aria-labelledby="rfof-overview">
+        <h2 id="rfof-overview">Überblick</h2>
+        <p>RFOF (Root Framework of Functions) bildet das organisatorische und technische Rückgrat des Golden System. Es definiert Interoperabilität, Governance‑Regeln und Schnittstellen zu PRAI, BOx‑Blockchain und Majorana‑Subsystemen.</p>
+        <ul>
+          <li><strong>Zweck:</strong> Koordination von Governance, Anreizmechaniken und Systemintegrationen.</li>
+          <li><strong>Geltungsbereich:</strong> Protokoll‑Level, Off‑chain‑Governance, und Publikationsprozesse innerhalb des Repositories.</li>
+          <li><strong>Konformität:</strong> RWPO‑konforme Implementierung ohne externe Abhängigkeiten.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="rfof-architecture">
+        <h2 id="rfof-architecture">Architekturprinzipien</h2>
+        <p>Das RFOF‑Golden System folgt klaren Architekturprinzipien, die Modularität, Determinismus und Nachvollziehbarkeit sicherstellen.</p>
+        <ol>
+          <li><strong>Modularität:</strong> Komponenten sind klar abgegrenzt (Governance, Accounting, Messaging, Integrationsadapter).</li>
+          <li><strong>Determinismus:</strong> Prozesse und Zustandsübergänge sind reproduzierbar und versioniert.</li>
+          <li><strong>Transparenz:</strong> Alle Entscheidungen und Parameter werden dokumentiert und versioniert im Repository.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="rfof-components">
+        <h2 id="rfof-components">Kernkomponenten</h2>
+        <p>Die wichtigsten Komponenten des RFOF‑Golden Systems sind:</p>
+        <ul>
+          <li><strong>Governance Engine:</strong> Regeln für Abstimmungen, Rechtevergabe und Parameter‑Updates.</li>
+          <li><strong>Incentive Layer:</strong> Definition von Emissionsmodellen, Belohnungsmechaniken und Slashing‑Regeln.</li>
+          <li><strong>Interoperability Adapter:</strong> Schnittstellen zu PRAI, BOx‑Blockchain und Majorana für Daten‑ und Werttransfer.</li>
+          <li><strong>Audit & Monitoring:</strong> On‑chain und Off‑chain Metriken zur Überwachung der Systemgesundheit.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="rfof-governance">
+        <h2 id="rfof-governance">Governance‑Modelle</h2>
+        <p>Governance im RFOF‑Golden System ist mehrstufig und RWPO‑konform. Entscheidungen werden dokumentiert, versioniert und sind reproduzierbar.</p>
+        <h3>Stufen der Governance</h3>
+        <ul>
+          <li><strong>Parameter‑Governance:</strong> Anpassung operativer Parameter (z. B. Emissionsraten) durch definierte Abstimmungsprozesse.</li>
+          <li><strong>Protocol‑Governance:</strong> Änderungen an Kernprotokollen nach mehrstufigem Review und Versionierung.</li>
+          <li><strong>Operational Governance:</strong> Tägliche Betriebsentscheidungen, dokumentiert und nachvollziehbar.</li>
+        </ul>
+        <h3>Review‑ und Entscheidungsprozess</h3>
+        <p>Jede Governance‑Änderung durchläuft Einreichung, fachlichen Review, methodische Validierung und RWPO‑Konformitätsprüfung vor der finalen Versionierung.</p>
+      </section>
+
+      <section aria-labelledby="rfof-integration">
+        <h2 id="rfof-integration">Integration mit PRAI, BOx und Majorana</h2>
+        <p>RFOF stellt standardisierte Adapter und Protokolle bereit, um Interoperabilität sicherzustellen:</p>
+        <ul>
+          <li><strong>PRAI:</strong> Schnittstellen für Anreiz‑ und Wirtschaftslogik; klare Trennung zwischen ökonomischen Regeln und technischen Implementierungen.</li>
+          <li><strong>BOx‑Blockchain:</strong> Mechanismen für sichere Wertübertragung, On‑chain‑Sicherheit und Datenverankerung.</li>
+          <li><strong>Majorana:</strong> Integrationspunkte für spezialisierte Subsysteme und Off‑chain‑Orchestrierung.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="rfof-security">
+        <h2 id="rfof-security">Sicherheit und Audit</h2>
+        <p>Sicherheitsprinzipien sind integraler Bestandteil des RFOF‑Designs. Audits, Monitoring und Revisionsmechanismen sind verpflichtend.</p>
+        <ul>
+          <li><strong>Audit Trails:</strong> Jede Änderung wird mit Metadaten (Autor, Datum, Version, Begründung) dokumentiert.</li>
+          <li><strong>Monitoring:</strong> On‑chain Metriken und Off‑chain Logs zur Erkennung von Anomalien.</li>
+          <li><strong>Incident Response:</strong> Vorgehen zur Behandlung von Sicherheitsvorfällen, inklusive Versionierung von Fixes und Errata.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="rfof-examples">
+        <h2 id="rfof-examples">Beispielszenarien</h2>
+        <p>Kurze Fallbeispiele illustrieren typische Abläufe innerhalb des RFOF‑Golden Systems:</p>
+        <article class="gt-case">
+          <h3>Parameter‑Update</h3>
+          <p>Ein vorgeschlagener Parameter‑Change wird eingereicht, durchläuft fachlichen Review, methodische Validierung und RWPO‑Check, erhält eine Versionsnummer und wird veröffentlicht.</p>
+        </article>
+        <article class="gt-case">
+          <h3>Interoperabler Werttransfer</h3>
+          <p>Ein Werttransfer zwischen BOx‑Blockchain und einem PRAI‑basierten Subsystem erfolgt über den Interoperability Adapter mit vollständiger Audit‑Spur.</p>
+        </article>
+      </section>
+
+      <section aria-labelledby="rfof-resources">
+        <h2 id="rfof-resources">Verwandte Dokumente</h2>
+        <ul>
+          <li><a href="architecture.html">Architecture</a></li>
+          <li><a href="prai-overview.html">PRAI — Overview</a></li>
+          <li><a href="box-blockchain.html">BOx‑Blockchain — Technical</a></li>
+          <li><a href="../pages/analysis/crypto.html">Crypto Analysis</a></li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="gt-footer" role="contentinfo">
+    <div class="gt-footer-inner">
+      <p>Golden‑Times‑Stor‑History‑Publisher · RFOF — Golden System · Dokumentation gemäß Root‑README.md und documentation/README.md</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/navigation.js"></script>
+</body>
+</html>

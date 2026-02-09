@@ -1,0 +1,23 @@
+<!-- PATH: Golden-Times-stor-history-Publisher/assets/icons/manifest.json -->
+{
+  "name": "Golden Times Stor History Publisher",
+  "short_name": "GoldenTimes",
+  "description": "A static publisher for historical and financial analysis content.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#b8860b",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "lang": "en-US"
+}

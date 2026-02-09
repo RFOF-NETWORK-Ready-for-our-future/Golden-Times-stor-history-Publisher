@@ -1,0 +1,163 @@
+/* PATH: Golden-Times-stor-history-Publisher/assets/css/theme-golden.css
+   Theme: Golden — Farbpalette und thematische Komponenten
+   RWPO‑konform: keine externen Abhängigkeiten, nur eigene Styles
+*/
+
+:root{
+  --gt-gold-900: #b07a05;
+  --gt-gold-700: #d4a017;
+  --gt-gold-500: #f0d9a3;
+  --gt-ink-900: #0f0b05;
+  --gt-surface-900: #1f1a12;
+  --gt-surface-700: #2a241b;
+  --gt-muted-600: #bfb7a8;
+  --gt-elev-1: rgba(255,255,255,0.02);
+  --gt-elev-2: rgba(255,255,255,0.04);
+  --gt-success: #2fb86f;
+  --gt-warning: #f2b705;
+  --gt-danger: #e05b4f;
+  --gt-glow: 0 8px 30px rgba(212,160,23,0.08);
+}
+
+/* Backgrounds and surfaces */
+.bg-surface{
+  background: linear-gradient(180deg, var(--gt-surface-900), var(--gt-surface-700));
+  color: var(--gt-text);
+}
+.surface-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  border:1px solid rgba(255,255,255,0.04);
+  border-radius:12px;
+  padding:1rem;
+  box-shadow: var(--gt-glow);
+}
+
+/* Accent elements */
+.gt-accent{
+  color: var(--gt-gold-700);
+}
+.btn-gt{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  background: linear-gradient(180deg, var(--gt-gold-700), var(--gt-gold-900));
+  color: var(--gt-ink-900);
+  border: none;
+  padding:0.55rem 0.9rem;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  transition:transform 160ms ease, box-shadow 160ms ease, opacity 120ms ease;
+  box-shadow: 0 6px 18px rgba(176,122,5,0.12);
+}
+.btn-gt:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(176,122,5,0.14)}
+.btn-ghost{
+  background:transparent;
+  border:1px solid rgba(212,160,23,0.12);
+  color:var(--gt-gold-500);
+  padding:0.45rem 0.75rem;
+  border-radius:8px;
+}
+
+/* Badges and labels */
+.badge{
+  display:inline-block;
+  padding:0.25rem 0.5rem;
+  border-radius:999px;
+  background:rgba(212,160,23,0.06);
+  color:var(--gt-gold-500);
+  font-weight:600;
+  font-size:0.85rem;
+}
+
+/* Cards and panels */
+.panel{
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  border:1px solid rgba(255,255,255,0.04);
+  border-radius:10px;
+  padding:1rem;
+}
+.panel-quiet{
+  background:transparent;
+  border:1px dashed rgba(255,255,255,0.03);
+}
+
+/* Navigation theme */
+.gt-nav-link{
+  color:var(--gt-muted);
+  padding:0.45rem 0.6rem;
+  border-radius:8px;
+}
+.gt-nav-link.active, .gt-nav-link:hover{
+  color:var(--gt-gold-700);
+  background:rgba(212,160,23,0.03);
+}
+
+/* Inputs and form elements */
+.input-gt, textarea{
+  background: rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.04);
+  color:var(--gt-text);
+  padding:0.6rem 0.75rem;
+  border-radius:8px;
+  width:100%;
+  transition:box-shadow 120ms ease, border-color 120ms ease;
+}
+.input-gt:focus, textarea:focus{
+  outline:none;
+  border-color:rgba(212,160,23,0.22);
+  box-shadow:0 6px 18px rgba(212,160,23,0.06);
+}
+
+/* Tables and lists */
+.table-gt th{
+  background:linear-gradient(180deg, rgba(212,160,23,0.03), transparent);
+  color:var(--gt-gold-700);
+  font-weight:700;
+}
+.table-gt td{color:var(--gt-muted)}
+
+/* Alerts */
+.alert{
+  padding:0.75rem 1rem;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.04);
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  color:var(--gt-muted);
+}
+.alert-success{border-color:rgba(47,184,111,0.08);color:var(--gt-success)}
+.alert-warning{border-color:rgba(242,183,5,0.08);color:var(--gt-warning)}
+.alert-danger{border-color:rgba(224,91,79,0.08);color:var(--gt-danger)}
+
+/* Decorative separators */
+.hr-gt{
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+  border:none;
+  margin:1rem 0;
+}
+
+/* Small UI helpers */
+.kicker-gt{font-size:0.85rem;color:var(--gt-gold-500);text-transform:uppercase;letter-spacing:0.08em}
+.meta-gt{font-size:0.9rem;color:var(--gt-muted)}
+
+/* Focus and accessibility */
+.focus-ring{
+  box-shadow:0 0 0 4px rgba(212,160,23,0.06);
+  border-radius:6px;
+}
+
+/* Responsive tweaks */
+@media (max-width:900px){
+  .btn-gt{padding:0.5rem 0.75rem;border-radius:8px}
+  .surface-card{padding:0.85rem;border-radius:10px}
+}
+
+/* Subtle animations */
+.fade-in{
+  animation:gt-fade-in 420ms ease both;
+}
+@keyframes gt-fade-in{
+  from{opacity:0;transform:translateY(6px)}
+  to{opacity:1;transform:translateY(0)}
+}

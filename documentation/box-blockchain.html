@@ -1,0 +1,145 @@
+<!-- PATH: Golden-Times-stor-history-Publisher/documentation/box-blockchain.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>BOx‑Blockchain — Technical — Golden Times Stor‑History Publisher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Technische Dokumentation der BOx‑Blockchain: Architektur, Konsens, Sicherheit und Integrationspunkte im Golden Times Ökosystem.">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/icon-32.png">
+  <link rel="manifest" href="../assets/icons/manifest.json">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/typography.css">
+  <link rel="stylesheet" href="../assets/css/theme-golden.css">
+</head>
+<body class="gt-body gt-doc-box">
+  <header class="gt-header">
+    <div class="gt-logo-wrap">
+      <a href="../index.html" class="gt-home-link">
+        <img src="../assets/logos/golden-times-logo.svg" alt="Golden Times Logo" class="gt-logo">
+        <span class="gt-header-brand">Golden Times Stor‑History Publisher — Documentation</span>
+      </a>
+    </div>
+    <nav class="gt-nav" aria-label="Dokumentation Navigation">
+      <a href="architecture.html" class="gt-nav-link">Architecture</a>
+      <a href="mission.html" class="gt-nav-link">Mission</a>
+      <a href="methodology.html" class="gt-nav-link">Methodology</a>
+      <a href="publishing-process.html" class="gt-nav-link">Publishing Process</a>
+      <a href="rfof-golden-system.html" class="gt-nav-link">RFOF</a>
+      <a href="prai-overview.html" class="gt-nav-link">PRAI</a>
+      <a href="box-blockchain.html" class="gt-nav-link active">BOx‑Blockchain</a>
+      <a href="majorana-system.html" class="gt-nav-link">Majorana</a>
+    </nav>
+  </header>
+
+  <main class="gt-main" role="main">
+    <article class="gt-doc-article" aria-labelledby="box-title">
+      <h1 id="box-title">BOx‑Blockchain — Technische Dokumentation</h1>
+      <p class="gt-lead">Die BOx‑Blockchain ist die On‑chain‑Infrastruktur des Golden Times Ökosystems. Dieses Dokument beschreibt Architekturprinzipien, Konsensmechanismen, Sicherheitsmodelle und Integrationspunkte zu PRAI, RFOF und Majorana.</p>
+
+      <section aria-labelledby="box-overview">
+        <h2 id="box-overview">Überblick</h2>
+        <p>BOx ist als leichtgewichtiges, auditierbares Ledger konzipiert, das deterministische Zustandsübergänge, klare Schnittstellen und vollständige Nachvollziehbarkeit gewährleistet. Designziele sind Sicherheit, Interoperabilität und RWPO‑Konformität.</p>
+        <ul>
+          <li><strong>Zweck:</strong> On‑chain‑Verankerung von Transaktionen, Werttransfer und Datenintegrität.</li>
+          <li><strong>Eigenschaften:</strong> Determinismus, Reproduzierbarkeit, modulare Adapter für Integrationen.</li>
+          <li><strong>Konformität:</strong> Keine externen Abhängigkeiten; alle Implementationsdetails sind im Repository dokumentiert.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="box-architecture">
+        <h2 id="box-architecture">Architektur</h2>
+        <p>Die Architektur der BOx‑Blockchain ist modular aufgebaut und umfasst folgende Schichten:</p>
+        <ol>
+          <li><strong>Netzwerk‑Layer:</strong> Peer‑to‑peer Kommunikation, Nachrichtenrouting und Verbindungsmanagement.</li>
+          <li><strong>Konsens‑Layer:</strong> Deterministischer Konsensmechanismus zur Festlegung von Blöcken und Zustandsübergängen.</li>
+          <li><strong>Execution‑Layer:</strong> Verarbeitung von Transaktionen, Zustandstransformationen und Smart‑Contract‑ähnlichen Logiken (leichtgewichtig und deterministisch).</li>
+          <li><strong>Storage‑Layer:</strong> Persistente Speicherung von Blöcken, Zuständen und Audit‑Metadaten.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="box-consensus">
+        <h2 id="box-consensus">Konsensmechanismus</h2>
+        <p>BOx verwendet einen deterministischen, permissioned‑freundlichen Konsensansatz, der auf Reproduzierbarkeit und geringer Latenz ausgelegt ist. Konsensparameter sind governance‑gesteuert und versioniert.</p>
+        <ul>
+          <li><strong>Determinismus:</strong> Alle Knoten führen dieselben Transaktionen in derselben Reihenfolge aus, um konsistente Zustände zu gewährleisten.</li>
+          <li><strong>Finalität:</strong> Mechanismen zur schnellen Finalisierung von Blöcken und zur Minimierung von Forks.</li>
+          <li><strong>Governance‑Parameter:</strong> Anpassbare Schwellenwerte für Quoren, Timeouts und Reorg‑Grenzen, gesteuert über RFOF‑Prozesse.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="box-security">
+        <h2 id="box-security">Sicherheit und Audit</h2>
+        <p>Sicherheitsprinzipien sind integraler Bestandteil des BOx‑Designs. Audits, Signaturen und Revisionspfade sind verpflichtend.</p>
+        <ul>
+          <li><strong>Kryptographische Integrität:</strong> Signaturen, Hash‑Verkettung und Merkle‑Proofs für Datenverankerung.</li>
+          <li><strong>Audit Trails:</strong> Vollständige Metadaten zu jeder Änderung (Autor, Zeitstempel, Version, Begründung).</li>
+          <li><strong>Monitoring:</strong> On‑chain Metriken zur Erkennung von Anomalien und zur Unterstützung von Incident‑Response.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="box-transaction">
+        <h2 id="box-transaction">Transaktionsmodell</h2>
+        <p>Das Transaktionsmodell ist einfach, deterministisch und auf Nachvollziehbarkeit ausgelegt.</p>
+        <ul>
+          <li><strong>Transaktionstypen:</strong> Werttransfer, State‑Update, Governance‑Proposal, Asset‑Verankerung.</li>
+          <li><strong>Validierung:</strong> Deterministische Prüfungen, Signaturverifikation und Quorum‑Checks.</li>
+          <li><strong>Fees und Priorisierung:</strong> Gebührenmodelle sind governance‑gesteuert und dokumentiert in PRAI‑ und RFOF‑Spezifikationen.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="box-integration">
+        <h2 id="box-integration">Integrationspunkte</h2>
+        <p>BOx stellt klar definierte Adapter und APIs bereit, um mit PRAI, RFOF und Majorana zu interagieren.</p>
+        <ul>
+          <li><strong>PRAI‑Adapter:</strong> Schnittstellen für Anreiz‑ und Emissionsereignisse, Vesting‑Verwaltung und Reward‑Auszahlungen.</li>
+          <li><strong>RFOF‑Adapter:</strong> Governance‑Signale, Parameter‑Updates und Audit‑Verweise.</li>
+          <li><strong>Majorana‑Orchestrierung:</strong> Off‑chain‑Orchestrierungspunkte für komplexe Workflows und Subsystem‑Interaktionen.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="box-deployment">
+        <h2 id="box-deployment">Deployment und Betrieb</h2>
+        <p>Deployment‑Richtlinien und Betriebsverfahren sind dokumentiert und folgen RWPO‑Standards.</p>
+        <ul>
+          <li><strong>Staging und Release:</strong> Staging‑Umgebungen für Tests; Releases werden versioniert und archiviert.</li>
+          <li><strong>Backup & Recovery:</strong> Regelmäßige Backups, Replikation und dokumentierte Recovery‑Prozeduren.</li>
+          <li><strong>Maintenance:</strong> Geplante Wartungsfenster, Errata‑Prozess und Changelog‑Pflege.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="box-examples">
+        <h2 id="box-examples">Beispielszenarien</h2>
+        <article class="gt-case">
+          <h3>On‑chain Asset Verankerung</h3>
+          <p>Ein Asset wird on‑chain verankert, inklusive Metadaten, Signaturen und Audit‑Spur; Verankerung ist referenzierbar aus Dokumentationen und Analysen.</p>
+        </article>
+        <article class="gt-case">
+          <h3>Governance‑Parameter Update</h3>
+          <p>Ein Governance‑Proposal ändert Konsensparameter; Änderung durchläuft RFOF‑Review, wird versioniert und on‑chain verankert.</p>
+        </article>
+      </section>
+
+      <section aria-labelledby="box-resources">
+        <h2 id="box-resources">Verwandte Dokumente</h2>
+        <ul>
+          <li><a href="rfof-golden-system.html">RFOF — Golden System</a></li>
+          <li><a href="prai-overview.html">PRAI — Overview</a></li>
+          <li><a href="majorana-system.html">Majorana — System</a></li>
+          <li><a href="../pages/analysis/crypto.html">Crypto Analysis</a></li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="gt-footer" role="contentinfo">
+    <div class="gt-footer-inner">
+      <p>Golden‑Times‑Stor‑History‑Publisher · BOx‑Blockchain · Dokumentation gemäß Root‑README.md und documentation/README.md</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/navigation.js"></script>
+</body>
+</html>
