@@ -1,0 +1,129 @@
+/* PATH: Golden-Times-stor-history-Publisher/assets/css/layout.css
+   Layout‑Styles für Golden Times Stor‑History Publisher
+   RWPO‑konform: keine externen Abhängigkeiten, nur eigene Styles
+*/
+
+/* Grid & Containers */
+.gt-grid{
+  display:grid;
+  grid-template-columns: 1fr min(1100px, 96%) 1fr;
+  gap:0;
+}
+.gt-grid > *{grid-column:2}
+
+/* Header / Navigation layout */
+.gt-header{
+  width:100%;
+  background:transparent;
+  padding:0.5rem 0;
+}
+.gt-header .gt-logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+  padding:0.5rem 1rem;
+}
+.gt-nav{
+  display:flex;
+  gap:0.5rem;
+  align-items:center;
+  padding:0.5rem 1rem;
+}
+
+/* Main content layout */
+.gt-main{
+  display:block;
+  padding:1.5rem 1rem;
+  max-width:var(--gt-max-width);
+  margin:0 auto;
+}
+
+/* Article and sidebars */
+.gt-doc-article, .gt-intro, .gt-crypto, article{
+  background:transparent;
+  padding:1rem 0;
+}
+.gt-sidebar{
+  border-left:1px solid var(--gt-border);
+  padding-left:1rem;
+  margin-left:1rem;
+  color:var(--gt-muted);
+  min-width:220px;
+}
+
+/* Two-column content */
+.gt-two-col{
+  display:grid;
+  grid-template-columns: 1fr 320px;
+  gap:1.25rem;
+  align-items:start;
+}
+@media (max-width:900px){
+  .gt-two-col{grid-template-columns:1fr}
+  .gt-sidebar{border-left:none;padding-left:0;margin-left:0}
+}
+
+/* Teaser grid */
+.gt-teasers{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1rem;
+}
+
+/* Footer layout */
+.gt-footer{
+  padding:1.25rem 1rem;
+  border-top:1px solid var(--gt-border);
+  background:linear-gradient(180deg, transparent, rgba(0,0,0,0.02));
+}
+.gt-footer-inner{
+  max-width:var(--gt-max-width);
+  margin:0 auto;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  gap:1rem;
+  align-items:center;
+}
+@media (max-width:700px){
+  .gt-footer-inner{flex-direction:column;align-items:flex-start}
+}
+
+/* Utility layout helpers */
+.container{max-width:var(--gt-max-width);margin:0 auto;padding:0 1rem}
+.center{text-align:center}
+.stack{display:flex;flex-direction:column;gap:0.75rem}
+
+/* Navigation responsive toggle */
+.gt-nav-toggle{
+  display:none;
+  background:transparent;
+  border:1px solid var(--gt-border);
+  color:var(--gt-muted);
+  padding:0.4rem 0.6rem;
+  border-radius:6px;
+}
+@media (max-width:900px){
+  .gt-nav{display:none}
+  .gt-nav-toggle{display:inline-block}
+}
+
+/* Card layout */
+.gt-card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  border:1px solid var(--gt-border);
+  padding:1rem;
+  border-radius:var(--gt-radius);
+  box-shadow:0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* Table responsive wrapper */
+.table-wrap{overflow:auto;border-radius:6px;border:1px solid var(--gt-border);padding:0.5rem;background:rgba(255,255,255,0.01)}
+
+/* Small screens adjustments */
+@media (max-width:480px){
+  :root{--gt-gap:0.75rem}
+  .gt-header .gt-logo{height:34px}
+  .gt-hero h1{font-size:1.5rem}
+  .gt-lead{font-size:0.98rem}
+}
