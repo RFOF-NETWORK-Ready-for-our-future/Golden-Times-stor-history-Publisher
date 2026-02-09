@@ -1,0 +1,96 @@
+<!-- PATH: Golden-Times-stor-history-Publisher/LICENSE -->
+Golden Times License 2026
+Copyright (c) 2026 RFOF-NETWORK
+
+Preamble
+This license governs the use, modification, distribution, and publication of the
+software and documentation contained in the Golden Times · Stor · History · Publisher
+repository. It is intentionally concise, practical, and tailored to the project's
+goals: open distribution, clear attribution, and release-bound licensing traceability.
+
+Definitions
+- "Software" means the source code, documentation, assets, scripts, styles,
+  configuration files, and other materials contained in this repository.
+- "Release" means a versioned publication of the Software associated with a
+  Git tag (e.g., v0.1.0) and the corresponding GitHub Release entry.
+- "You" means any person or entity that obtains a copy of the Software.
+
+Grant of Rights
+1. Permission is hereby granted, free of charge, to any person obtaining a copy
+   of the Software and associated documentation files (the "Software"), to use,
+   copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+   the Software, subject to the conditions below.
+
+Conditions
+2. Attribution
+   - Redistributions of source code or binaries must retain the above copyright
+     notice, this permission notice, and a reference to the originating repository:
+     https://github.com/RFOF/Golden-Times-stor-history-Publisher
+   - When publishing a packaged release derived from this Software, include a
+     clear reference to the original repository and the Release tag or commit SHA
+     that served as the basis for the published package.
+
+3. Release Traceability
+   - Any public redistribution that is presented as a "release" or "package"
+     must include the Release tag (e.g., v0.1.0) and the `release-log.json` or
+     equivalent metadata that documents the commit SHA and license hash at the
+     time of release. This ensures reproducibility and legal traceability.
+
+4. No External Dependencies Mandate
+   - Distributions that claim compatibility with the Golden Times project must
+     not require external, proprietary, or third-party services for core
+     functionality unless explicitly documented and consented by RFOF-NETWORK.
+     (This clause preserves the project's principle of self-contained operation.)
+
+5. No Trademark Grant
+   - This license does not grant any rights to use the "Golden Times", "RFOF",
+     "GT-P", or related marks and logos for endorsement, advertising, or
+     branding without explicit written permission from RFOF-NETWORK.
+
+6. Patent and Contribution
+   - Contributors grant a perpetual, worldwide, non-exclusive, royalty-free
+     license to any patents necessarily infringed by their contributions to the
+     Software, solely to the extent required to exercise the rights granted by
+     this license.
+   - Contributions submitted to the repository are considered licensed under
+     the same terms as this license unless otherwise stated.
+
+7. Warranty Disclaimer
+   - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+     IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+     FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. USE AT YOUR OWN RISK.
+
+8. Limitation of Liability
+   - IN NO EVENT SHALL RFOF-NETWORK OR CONTRIBUTORS BE LIABLE FOR ANY CLAIM,
+     DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR
+     OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE
+     USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+9. Commercial Use and Redistribution
+   - Commercial redistribution is permitted under this license provided the
+     conditions above are met (attribution, release traceability, and no
+     trademark use). For alternative licensing or commercial agreements,
+     contact RFOF-NETWORK.
+
+10. Jurisdiction and Interpretation
+    - This license is intended to be interpreted in a manner consistent with
+      open-source distribution practices. If any provision is found invalid or
+      unenforceable, the remaining provisions remain in effect.
+    - This license does not replace professional legal advice. For binding legal
+      arrangements or enterprise licensing, consult legal counsel.
+
+Practical Notes for Maintainers and Users
+- The CI workflow generates `release-log.json` and computes a license hash at
+  release time. Keep `LICENSE` in the repository root and update it only when
+  you intend to change licensing terms for future releases.
+- When preparing a release, ensure `release-log.json` and `metadata.json` are
+  included as release assets to preserve provenance.
+- The "No External Dependencies Mandate" reflects the project's design principle:
+  prefer self-contained assets and avoid hidden runtime dependencies that would
+  undermine reproducibility.
+
+Contact
+For questions about licensing, commercial use, or trademark permissions, contact:
+RFOF-NETWORK — https://github.com/RFOF/Golden-Times-stor-history-Publisher/issues
+
+End of Golden Times License 2026
