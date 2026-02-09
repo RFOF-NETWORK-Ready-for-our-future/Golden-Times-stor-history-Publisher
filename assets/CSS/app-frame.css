@@ -1,8 +1,3 @@
-/
-/* PATH: assets/css/app-frame.css
-   App‑Frame: Zoom default, centered headings, gold‑button links, blue shadow.
-   Füge diese Datei hinzu oder ersetze die vorhandene app-frame.css komplett. */
-
 :root{
   --app-ref-width: 412px;
   --app-padding: 16px;
@@ -18,6 +13,10 @@
   --heading-gap-section: 32px;
   --heading-gap-sub: 16px;
   --heading-gap-inline: 8px;
+
+  /* Fehlende Defaults ergänzt */
+  --gt-muted: #4b5563; /* neutraler, gut lesbarer Grauton */
+  --gt-accent-weak: #1e78ff; /* blauer Akzent für plain links fallback */
 }
 
 /* Base app frame */
@@ -29,10 +28,12 @@
   transform-origin: top center;
   will-change: transform;
   transition: transform 260ms cubic-bezier(.2,.9,.2,1);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   background: transparent;
+  /* Default scale tatsächlich anwenden */
+  transform: scale(var(--app-default-scale));
 }
 
 /* Center main containers inside the frame */
@@ -42,7 +43,8 @@
 .app-frame > .gt-container,
 .app-frame > .container {
   width: 100%;
-  max-width: calc(var(--app-ref-width) - 2 * var(--app-padding));
+  /* calc ist korrekt; hier mit klaren Abständen */
+  max-width: calc(var(--app-ref-width) - (2 * var(--app-padding)));
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
@@ -103,7 +105,7 @@
 }
 
 /* Plain links keep original look */
-.app-frame a.plain-link { background:transparent; color:var(--gt-accent-weak); box-shadow:none; padding:0; font-weight:500; }
+.app-frame a.plain-link { background:transparent; color:var(--gt-accent-weak, var(--gt-accent-weak)); box-shadow:none; padding:0; font-weight:500; }
 
 /* Zoom controls (on-screen) */
 .app-frame .zoom-controls {
@@ -143,5 +145,8 @@
   .app-frame > .gt-container, .app-frame > .container { max-width: calc(100% - 24px); padding-left:12px; padding-right:12px; }
 }
 
-/* Prevent text-size adjust issues */
-.app-frame * { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }.app-frame * { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+/* Prevent text-size adjust issues (single rule) */
+.app-frame * {
+  -webkit-text-size-adjust:100%;
+  -ms-text-size-adjust:100%;
+}
