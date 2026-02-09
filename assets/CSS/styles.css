@@ -1,0 +1,177 @@
+/* assets/css/style.css
+   Styles für Golden Times Stor‑History Publisher
+   RWPO‑konform: keine externen Abhängigkeiten, nur eigene Styles
+   Nutze ausschließlich Terminologie aus Root‑README.md und documentation/README.md
+*/
+
+/ Grundlegende Variablen und Farbpalette (Theme Golden) /
+:root{
+  --gt-bg: #0f0b05;
+  --gt-surface: #1f1a12;
+  --gt-accent: #d4a017;
+  --gt-accent-weak: #f0d9a3;
+  --gt-text: #f6f3ee;
+  --gt-muted: #bfb7a8;
+  --gt-border: rgba(255,255,255,0.06);
+  --gt-radius: 8px;
+  --gt-max-width: 1100px;
+  --gt-gap: 1.25rem;
+  --gt-font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/ Basis-Reset /
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--gt-font-sans);
+  background:linear-gradient(180deg,var(--gt-bg) 0%, #0b0a08 100%);
+  color:var(--gt-text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  font-size:16px;
+}
+
+/ Layout-Container /
+.gt-container{
+  max-width:var(--gt-max-width);
+  margin:0 auto;
+  padding:1.5rem;
+}
+
+/ Header /
+.gt-header{
+  border-bottom:1px solid var(--gt-border);
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  position:sticky;
+  top:0;
+  z-index:40;
+}
+.gt-header-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--gt-gap);
+  padding:0.75rem 0;
+}
+.gt-logo-wrap{display:flex;align-items:center;gap:0.75rem}
+.gt-logo{height:40px;width:auto;display:block}
+.gt-header-brand{
+  font-weight:700;
+  color:var(--gt-accent-weak);
+  letter-spacing:0.02em;
+  font-size:1rem;
+}
+
+/ Navigation /
+.gt-nav{
+  display:flex;
+  gap:0.75rem;
+  align-items:center;
+  padding:0.5rem 0;
+  flex-wrap:wrap;
+}
+.gt-nav-link{
+  color:var(--gt-muted);
+  text-decoration:none;
+  padding:0.45rem 0.6rem;
+  border-radius:6px;
+  transition:all 160ms ease;
+  font-size:0.95rem;
+}
+.gt-nav-link:hover{color:var(--gt-text);background:rgba(255,255,255,0.02)}
+.gt-nav-link.active{color:var(--gt-accent);font-weight:600}
+
+/ Hero /
+.gt-hero{
+  display:flex;
+  align-items:center;
+  gap:1.25rem;
+  padding:2.25rem 0;
+  border-bottom:1px solid var(--gt-border);
+}
+.gt-hero-image{
+  max-width:420px;
+  width:40%;
+  border-radius:var(--gt-radius);
+  box-shadow:0 6px 24px rgba(0,0,0,0.45);
+  object-fit:cover;
+}
+.gt-hero-content{width:60%}
+.gt-hero h1{
+  margin:0 0 0.5rem 0;
+  font-size:2rem;
+  color:var(--gt-text);
+}
+.gt-lead{
+  margin:0;
+  color:var(--gt-muted);
+  font-size:1.05rem;
+}
+
+/ Sections /
+section{padding:1.5rem 0;border-bottom:1px solid var(--gt-border)}
+h2{margin:0 0 0.6rem 0;color:var(--gt-accent-weak);font-size:1.15rem}
+p,ul,ol{color:var(--gt-muted);margin:0 0 0.75rem 0}
+ul{padding-left:1.25rem}
+.gt-teasers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.gt-teaser{
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  border:1px solid var(--gt-border);
+  padding:1rem;
+  border-radius:var(--gt-radius);
+}
+.gt-teaser h3{margin:0 0 0.5rem 0;color:var(--gt-accent)}
+.gt-cta{
+  display:inline-block;
+  margin-top:0.5rem;
+  color:var(--gt-accent);
+  text-decoration:none;
+  font-weight:600;
+}
+
+/ Article / Content /
+article{max-width:var(--gt-max-width);margin:0 auto}
+.gt-main{padding:1.5rem 0}
+
+/ Footer /
+.gt-footer{
+  margin-top:2rem;
+  padding:1.25rem 0;
+  border-top:1px solid var(--gt-border);
+  color:var(--gt-muted);
+  font-size:0.9rem;
+}
+.gt-footer-inner{display:flex;flex-direction:column;gap:0.35rem;align-items:center}
+
+/ Utilities /
+.row{display:flex;gap:1rem;flex-wrap:wrap}
+.col{flex:1}
+.small{font-size:0.875rem;color:var(--gt-muted)}
+.kv{display:flex;gap:0.5rem;align-items:center}
+
+/ Accessibility /
+a:focus{outline:2px solid rgba(212,160,23,0.18);outline-offset:2px;border-radius:4px}
+img{max-width:100%;height:auto;display:block}
+
+/ Responsive /
+@media (max-width:900px){
+  .gt-hero{flex-direction:column}
+  .gt-hero-image{width:100%}
+  .gt-hero-content{width:100%}
+  .gt-header-top{flex-direction:column;align-items:flex-start;gap:0.5rem}
+  .gt-nav{width:100%;justify-content:flex-start}
+}
+
+/ RWPO‑Hinweis (sichtbar in dev / nicht extern) /
+.gt-rwpo-note{
+  display:block;
+  margin-top:1rem;
+  padding:0.6rem;
+  background:rgba(212,160,23,0.04);
+  border:1px dashed rgba(212,160,23,0.08);
+  color:var(--gt-accent-weak);
+  font-size:0.875rem;
+  border-radius:6px;
+}
