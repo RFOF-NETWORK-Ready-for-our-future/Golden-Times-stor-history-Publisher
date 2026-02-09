@@ -1,73 +1,147 @@
-<!-- PATH: Golden-Times-stor-history-Publisher/assets/css/app-frame.css -->
-/* Ergänzende Regeln für App‑Frame, Heading‑Spacing und mobile‑first Erzwingung.
-   Nur hinzufügen; überschreibt bei Bedarf vorhandene Variablen/Regeln. */
+/
+/* PATH: assets/css/app-frame.css
+   App‑Frame: Zoom default, centered headings, gold‑button links, blue shadow.
+   Füge diese Datei hinzu oder ersetze die vorhandene app-frame.css komplett. */
 
 :root{
   --app-ref-width: 412px;
   --app-padding: 16px;
-  --app-scale-max: 1.0;
-  --app-scale-min: 0.6;
+  --app-default-scale: 0.78;
+  --app-zoom-step: 0.12;
+  --app-zoom-min: 0.5;
+  --app-zoom-max: 1.2;
+  --gold: #d4a017;
+  --gold-weak: #f0d9a3;
+  --link-blue-shadow: rgba(30,120,255,0.18);
+  --button-radius: 12px;
+  --button-padding: 10px 14px;
   --heading-gap-section: 32px;
   --heading-gap-sub: 16px;
   --heading-gap-inline: 8px;
 }
 
-/* App frame wrapper: centered, mobile width enforced */
+/* Base app frame */
 .app-frame {
   width: var(--app-ref-width);
   max-width: 100%;
-  margin: 0 auto;
-  background: transparent;
+  margin: 12px auto;
   min-height: 100vh;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.55);
-  border-radius: 0;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
   transform-origin: top center;
+  will-change: transform;
+  transition: transform 260ms cubic-bezier(.2,.9,.2,1);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  box-sizing: border-box;
+  background: transparent;
 }
 
-.app-frame--device { border-radius: 24px; overflow: hidden; }
-
-body.gt-body { display: flex; justify-content: center; background-attachment: fixed; }
-
-/* Force portrait-like stacking inside app-frame */
-.app-frame .stack-vertical, .app-frame .gt-grid { display: block; }
-.app-frame .gt-grid-2, .app-frame .gt-grid-3 { display: block; }
-
-/* Strict heading spacing rules */
-.app-frame h1, .app-frame .h1 { margin: 0 0 var(--heading-gap-section) 0 !important; }
-.app-frame h2, .app-frame .h2 { margin: 0 0 var(--heading-gap-sub) 0 !important; }
-.app-frame h3, .app-frame .h3 { margin: 0 0 var(--heading-gap-inline) 0 !important; }
-
-.app-frame .card h2, .app-frame .card-heading { margin-bottom: var(--heading-gap-inline) !important; }
-
-/* Touch targets */
-.app-frame .gt-btn, .app-frame .btn { min-height: 44px; padding: 10px 14px; border-radius: 12px; touch-action: manipulation; }
-
-/* Padding inside frame */
-.app-frame .container, .app-frame .gt-container { padding-left: var(--app-padding); padding-right: var(--app-padding); }
-
-/* Images */
-.app-frame img { max-width:100%; height:auto; display:block; }
-.app-frame .article { max-width: 360px; margin-left:auto; margin-right:auto; }
-
-/* Scale on wide viewports to keep mobile look */
-@media (min-width: 900px) {
-  :root { --viewport-available: calc(100vw - 120px); }
-  .app-frame { transform: scale(calc(min(var(--app-scale-max), var(--viewport-available) / var(--app-ref-width)))); }
+/* Center main containers inside the frame */
+.app-frame > header,
+.app-frame > main,
+.app-frame > footer,
+.app-frame > .gt-container,
+.app-frame > .container {
+  width: 100%;
+  max-width: calc(var(--app-ref-width) - 2 * var(--app-padding));
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  padding-left: var(--app-padding);
+  padding-right: var(--app-padding);
 }
 
-/* Reserve aspect for hero images */
+/* Heading spacing and centering */
+.app-frame h1, .app-frame .h1 { text-align:center; margin:0 0 var(--heading-gap-section) 0 !important; }
+.app-frame h2, .app-frame .h2 { text-align:center; margin:0 0 var(--heading-gap-sub) 0 !important; }
+.app-frame h3, .app-frame .h3 { text-align:center; margin:0 0 var(--heading-gap-inline) 0 !important; }
+
+/* Body text: readable, constrained column, left-aligned */
+.app-frame p, .app-frame li {
+  text-align:left;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--gt-muted);
+  line-height: 1.55;
+}
+
+/* Cards: centered headings, readable body */
+.app-frame .gt-card { padding: calc(var(--app-padding) * 0.9); box-sizing: border-box; }
+.app-frame .gt-card h3 { text-align:center; }
+
+/* Hero: center content and actions */
+.app-frame .gt-hero { display:block; padding: var(--app-padding) 0; }
+.app-frame .gt-hero-content { text-align:center; margin:0 auto; max-width:420px; }
+.app-frame .gt-hero-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:12px; }
+
+/* Grid: stacked but visually centered blocks */
+.app-frame .gt-grid-2, .app-frame .gt-grid-3, .app-frame .gt-grid { display:block; }
+.app-frame .gt-grid > .gt-card, .app-frame .gt-grid > article { margin-left:auto; margin-right:auto; max-width:520px; }
+
+/* Gold button style for links */
+.app-frame a:not(.plain-link) {
+  display:inline-block;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--gold-weak) 100%);
+  color: #071018;
+  padding: var(--button-padding);
+  border-radius: var(--button-radius);
+  text-decoration:none;
+  font-weight:700;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35), 0 2px 8px var(--link-blue-shadow);
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+  border: 1px solid rgba(255,255,255,0.04);
+  margin: 6px 4px;
+}
+
+/* Hover / focus */
+.app-frame a:not(.plain-link):hover,
+.app-frame a:not(.plain-link):focus {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.45), 0 6px 18px var(--link-blue-shadow);
+  filter: saturate(1.05);
+  outline: none;
+}
+
+/* Plain links keep original look */
+.app-frame a.plain-link { background:transparent; color:var(--gt-accent-weak); box-shadow:none; padding:0; font-weight:500; }
+
+/* Zoom controls (on-screen) */
+.app-frame .zoom-controls {
+  position: fixed;
+  right: 12px;
+  top: 12px;
+  z-index: 9999;
+  display:flex;
+  gap:8px;
+  pointer-events:auto;
+}
+.app-frame .zoom-controls button {
+  background: rgba(11,11,11,0.6);
+  color: var(--gold-weak);
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+.app-frame .zoom-controls button:active { transform: scale(0.98); }
+
+/* Hero image stability */
 .app-frame .gt-hero-image, .app-frame .gt-hero-media img { aspect-ratio: 16/9; object-fit: cover; }
 
-/* Small screens */
-@media (max-width: 420px) {
-  :root { --app-padding: 12px; --heading-gap-section: 24px; --heading-gap-sub: 12px; }
-  .app-frame { width: calc(100% - 24px); margin: 0 12px; transform: none; }
+/* Footer centering on small screens */
+.app-frame .gt-footer-top { display:flex; flex-direction:column; align-items:center; gap:12px; }
+.app-frame .gt-footer-column { text-align:center; }
+
+/* Accessibility */
+.app-frame a:focus, .app-frame button:focus { outline: 3px solid rgba(212,160,23,0.18); outline-offset:2px; }
+
+/* Small screens adjustments */
+@media (max-width:420px) {
+  :root { --app-default-scale: 0.92; --button-padding: 10px 12px; }
+  .app-frame { width: calc(100% - 24px); margin: 12px; transform: none; }
+  .app-frame > .gt-container, .app-frame > .container { max-width: calc(100% - 24px); padding-left:12px; padding-right:12px; }
 }
 
-/* Force vertical stacking utility */
-.force-stack > * { display:block; width:100%; margin-bottom: var(--app-padding); }
-
-/* Focus ring */
-.app-frame a:focus, .app-frame button:focus { outline: 3px solid rgba(212,160,23,0.18); outline-offset: 2px; }
+/* Prevent text-size adjust issues */
+.app-frame * { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }.app-frame * { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
