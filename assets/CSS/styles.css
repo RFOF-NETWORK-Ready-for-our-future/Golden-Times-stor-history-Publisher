@@ -175,3 +175,113 @@ img{max-width:100%;height:auto;display:block}
   font-size:0.875rem;
   border-radius:6px;
 }
+
+/* APP FRAME CENTER + UNIFORM TYPOGRAPHY PATCH
+   Paste this at the end of assets/css/app-frame.css (or in a file loaded last). */
+
+/* 1) Frame inner centering and content width control */
+.app-frame {
+  display: flex;
+  justify-content: center; /* center the inner container horizontally */
+  align-items: flex-start;
+  padding-top: 12px;
+  box-sizing: border-box;
+}
+
+/* Keep a single inner content column that mirrors previous centering */
+.app-frame > .gt-container,
+.app-frame > .container,
+.app-frame > main,
+.app-frame > header,
+.app-frame > footer {
+  width: 100%;
+  max-width: calc(var(--app-ref-width) - 2 * var(--app-padding));
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* 2) Global text alignment: headings centered, body text left for readability,
+   but card content can be centered optionally. Adjust as needed. */
+.app-frame h1,
+.app-frame .gt-hero-title,
+.app-frame .section-heading {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: var(--heading-gap-section);
+  word-break: break-word;
+}
+
+.app-frame h2,
+.app-frame .h2,
+.app-frame .gt-section-header h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: var(--heading-gap-sub);
+}
+
+.app-frame h3,
+.app-frame .h3,
+.app-frame .card-heading {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: var(--heading-gap-inline);
+}
+
+/* Body paragraphs remain left-aligned for legibility but constrained width */
+.app-frame p,
+.app-frame li {
+  text-align: left;
+  margin: 0 0 var(--app-padding) 0;
+  color: var(--gt-muted);
+  line-height: 1.55;
+}
+
+/* 3) Card content: center headings, keep paragraphs readable */
+.app-frame .gt-card {
+  text-align: left; /* default card text left for readability */
+  padding: calc(var(--app-padding) * 0.9);
+}
+.app-frame .gt-card h3 { text-align: center; }
+
+/* 4) Hero: center hero content and actions */
+.app-frame .gt-hero { display:block; padding: var(--app-padding) 0; }
+.app-frame .gt-hero-content { text-align: center; margin: 0 auto; max-width: 420px; }
+.app-frame .gt-hero-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:12px; }
+
+/* 5) Grid -> stacked but visually centered blocks */
+.app-frame .gt-grid-2,
+.app-frame .gt-grid-3,
+.app-frame .gt-grid {
+  display:block; /* keep vertical stacking for app look */
+}
+.app-frame .gt-grid > .gt-card,
+.app-frame .gt-grid > article {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 520px; /* prevents very wide cards inside the app frame */
+}
+
+/* 6) Ensure consistent spacing for all heading "kinds" */
+:root {
+  --uniform-gap-h1: var(--heading-gap-section);
+  --uniform-gap-h2: var(--heading-gap-sub);
+  --uniform-gap-h3: var(--heading-gap-inline);
+}
+.app-frame h1 { margin-bottom: var(--uniform-gap-h1) !important; }
+.app-frame h2 { margin-bottom: var(--uniform-gap-h2) !important; }
+.app-frame h3 { margin-bottom: var(--uniform-gap-h3) !important; }
+
+/* 7) Small screens: tighten paddings but keep centering */
+@media (max-width: 420px) {
+  .app-frame > .gt-container,
+  .app-frame > .container { max-width: calc(100% - 2 * 12px); padding-left:12px; padding-right:12px; }
+  .app-frame .gt-hero-content { max-width: 100%; }
+}
+
+/* 8) Quick visual polish: center footer columns on small screens */
+.app-frame .gt-footer-top { display:flex; flex-direction:column; align-items:center; gap:12px; }
+.app-frame .gt-footer-column { text-align:center; }
+
+/* 9) Prevent accidental left-only alignment from other rules */
+.app-frame * { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
